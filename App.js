@@ -1,4 +1,6 @@
 //nested div
+import React from "react";
+import ReactDOM from "react-dom/client";
 
 const parent = React.createElement("div", { id: "parent" }, [
   React.createElement("div", { id: "child1" }, [
@@ -15,4 +17,19 @@ console.log(parent); //object
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(parent);
+//JSX - Html-like or Xml-like syntax(transpiled before it reaches the JS) - PARCEL - Babel
+const jsxHeading = <h1 className="header">Namaste react using jsx</h1>;
+
+//React Functional Component
+const Title = () => <h1 className="head">Namaste React using JSX</h1>;
+
+//component compostition
+const HeadingComponent = () => (
+  <div id="container">
+    <Title />
+    {Title()}
+    <Title></Title>
+    <h1 className="heading">Namaste React Functional Component</h1>
+  </div>
+);
+root.render(<HeadingComponent />);
